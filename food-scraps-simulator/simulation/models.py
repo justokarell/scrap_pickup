@@ -8,6 +8,15 @@ LoadingMethod = Literal["bulk_dump", "swapped_containers", "bags_totes", "custom
 
 
 @dataclass(frozen=True)
+class GeoPoint:
+    id: str
+    name: str
+    address: str
+    latitude: float | None = None
+    longitude: float | None = None
+
+
+@dataclass(frozen=True)
 class CollectionLocation:
     id: str
     name: str
@@ -64,6 +73,7 @@ class Scenario:
     schema_version: int
     name: str
     simulation: SimulationSettings
+    depot: GeoPoint
     locations: tuple[CollectionLocation, ...]
     trucks: tuple[Truck, ...]
     processing_sites: tuple[ProcessingSite, ...]
@@ -84,6 +94,29 @@ class Scenario:
             state_step_hours=float(sim.get("state_step_hours", 1.0)),
             decision_epoch_hour=int(sim.get("decision_epoch_hour", 8)),
         )
+
+        depot_data = data.get("depot")
+        if not depot_data:
+            raise ValueError(
+                "Scenario requires an explicit 'depot' object with at least "
+                "id, name, and address. The simulator does not infer a depot "
+                "from processing sites."
+            )
+
+        depot = GeoPoint(
+            id=str(depot_data["id"]),
+            name=str(depot_data.get("name", depot_data["id"])),
+            address=str(depot_data.get("address", "")),
+            latitude=cls._optional_float(depot_data.get("latitude")),
+            longitude=cls._optional_float(depot_data.get("longitude")),
+        )
+
+        if not depot.address and (
+            depot.latitude is None or depot.longitude is None
+        ):
+            raise ValueError(
+                "Depot requires either an address or both latitude and longitude."
+            )
 
         locations = tuple(
             CollectionLocation(
@@ -142,20 +175,34 @@ class Scenario:
         )
 
         if not locations:
-            raise ValueError(
-                "Scenario requires at least one collection location."
-            )
+            raise ValueError("Scenario requires at least one collection location.")
         if not trucks:
             raise ValueError("Scenario requires at least one truck.")
         if not sites:
-            raise ValueError(
-                "Scenario requires at least one processing site."
-            )
+            raise ValueError("Scenario requires at least one processing site.")
 
         for loc in locations:
             if loc.capacity_lbs <= 0:
                 raise ValueError(
                     f"Collection location {loc.id} has nonpositive capacity."
+                )
+            if not loc.address and (
+                loc.latitude is None or loc.longitude is None
+            ):
+                raise ValueError(
+                    f"Collection location {loc.id} requires an address or coordinates."
+                )
+
+        for site in sites:
+            if site.storage_capacity_lbs <= 0:
+                raise ValueError(
+                    f"Processing site {site.id} has nonpositive storage capacity."
+                )
+            if not site.address and (
+                site.latitude is None or site.longitude is None
+            ):
+                raise ValueError(
+                    f"Processing site {site.id} requires an address or coordinates."
                 )
 
         for truck in trucks:
@@ -168,6 +215,7 @@ class Scenario:
             schema_version=int(data.get("schema_version", 1)),
             name=str(data.get("name", "Untitled scenario")),
             simulation=settings,
+            depot=depot,
             locations=locations,
             trucks=trucks,
             processing_sites=sites,
