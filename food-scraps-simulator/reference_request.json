@@ -1,0 +1,171 @@
+{
+  "scenario": {
+    "schema_version": 1,
+    "name": "Illustrative Stamford 7-Day Baseline",
+    "simulation": {
+      "start_date": "2026-09-07",
+      "duration_days": 7,
+      "state_step_hours": 1,
+      "decision_epoch_hour": 8
+    },
+    "locations": [
+      {
+        "id": "mill_river",
+        "name": "Mill River Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 8.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "scalzi",
+        "name": "Scalzi Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 7.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "fort_stamford",
+        "name": "Fort Stamford",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 5.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "scofieldtown",
+        "name": "Scofieldtown Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 6.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "springdale",
+        "name": "Springdale Train Station",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 6.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "glenbrook",
+        "name": "Glenbrook Train Station",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 6.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "courtland",
+        "name": "Courtland Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 4.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "cove",
+        "name": "Cove Island",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 5.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "harry_bennett",
+        "name": "Harry Bennett Branch Library",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 3.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "kosciuszko",
+        "name": "Kosciuszko Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 3.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "west_beach",
+        "name": "West Beach",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 3.5,
+        "service_minutes": 5
+      },
+      {
+        "id": "boccuzzi",
+        "name": "Boccuzzi Park",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 3.0,
+        "service_minutes": 5
+      },
+      {
+        "id": "government_center",
+        "name": "Government Center / Ferguson Library",
+        "capacity_lbs": 180,
+        "initial_lbs": 0,
+        "demand_lbs_per_day": 2.7,
+        "service_minutes": 5
+      }
+    ],
+    "trucks": [
+      {
+        "id": "truck_1",
+        "name": "Truck 1",
+        "max_weight_lbs": 800,
+        "cost_per_mile": 0.7,
+        "cost_per_hour": 35
+      }
+    ],
+    "processing_sites": [
+      {
+        "id": "katrina_mygatt",
+        "name": "Katrina Mygatt Recycling Center",
+        "storage_capacity_lbs": 5000,
+        "processing_lbs_per_day": 500,
+        "unload_minutes": 12
+      },
+      {
+        "id": "fairgate",
+        "name": "Fairgate Farm",
+        "storage_capacity_lbs": 3000,
+        "processing_lbs_per_day": 300,
+        "unload_minutes": 12
+      },
+      {
+        "id": "scofieldtown_processing",
+        "name": "Scofieldtown Park",
+        "storage_capacity_lbs": 3000,
+        "processing_lbs_per_day": 300,
+        "unload_minutes": 12
+      },
+      {
+        "id": "mill_river_processing",
+        "name": "Mill River Park",
+        "storage_capacity_lbs": 3000,
+        "processing_lbs_per_day": 300,
+        "unload_minutes": 12
+      }
+    ],
+    "policy": {
+      "type": "fixed",
+      "weekdays": [
+        0,
+        3
+      ],
+      "threshold": 0.8
+    }
+  },
+  "simulation_config": {
+    "seed": 42,
+    "model_version": "0.1.0",
+    "detail_level": "summary",
+    "stochastic": false
+  }
+}

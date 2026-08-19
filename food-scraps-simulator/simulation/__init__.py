@@ -1,0 +1,1 @@
+"""Food-scraps simulation package."""
