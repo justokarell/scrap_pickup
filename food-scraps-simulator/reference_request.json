@@ -1,3 +1,4 @@
+
 {
   "scenario": {
     "schema_version": 1,
@@ -7,6 +8,11 @@
       "duration_days": 7,
       "state_step_hours": 1,
       "decision_epoch_hour": 8
+    },
+    "depot": {
+      "id": "stamford_collection_depot",
+      "name": "Stamford Collection Operations Depot",
+      "address": "130 Magee Ave, Stamford, CT 06902"
     },
     "locations": [
       {
