@@ -1,11 +1,10 @@
-
 from datetime import datetime, timedelta
 
 from .demand import arrivals
 from .models import Scenario
 from .policies import requested_locations
 from .processing import advance_processing
-from .routing import execute_greedy_route
+from .routing import execute_greedy_route, _coordinates
 from .state import BinState, SiteState, SystemState, TruckState
 
 
@@ -193,8 +192,8 @@ class SimulationEngine:
                 "id": location_id,
                 "name": loc_lookup[location_id].name,
                 "address": loc_lookup[location_id].address,
-                "latitude": loc_lookup[location_id].latitude,
-                "longitude": loc_lookup[location_id].longitude,
+                "latitude": _coordinates(loc_lookup[location_id])[0],
+                "longitude": _coordinates(loc_lookup[location_id])[1],
                 "arrivals_lbs": (
                     bin_state.arrivals_lbs
                     + loc_lookup[location_id].initial_lbs
@@ -245,8 +244,8 @@ class SimulationEngine:
                 "id": site_id,
                 "name": site_lookup[site_id].name,
                 "address": site_lookup[site_id].address,
-                "latitude": site_lookup[site_id].latitude,
-                "longitude": site_lookup[site_id].longitude,
+                "latitude": _coordinates(site_lookup[site_id])[0],
+                "longitude": _coordinates(site_lookup[site_id])[1],
                 "received_lbs": site_state.received_lbs,
                 "processed_lbs": site_state.processed_lbs,
                 "backlog_lbs": site_state.inventory_lbs,
