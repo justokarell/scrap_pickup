@@ -1,7 +1,3 @@
-Library
-/
-test_api.py
-
 
 from unittest.mock import patch
 from fastapi.testclient import TestClient
