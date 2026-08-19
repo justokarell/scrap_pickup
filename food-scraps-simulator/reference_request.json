@@ -1,3 +1,8 @@
+Library
+/
+reference_request.json
+
+
 {
   "scenario": {
     "schema_version": 1,
@@ -15,7 +20,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 8.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "1055 Washington Blvd, Stamford, CT 06901",
+        "latitude": 41.05387,
+        "longitude": -73.54442
       },
       {
         "id": "scalzi",
@@ -23,7 +31,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 7.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "97 Bridge St, Stamford, CT 06902",
+        "latitude": 41.06471,
+        "longitude": -73.549804
       },
       {
         "id": "fort_stamford",
@@ -31,7 +42,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 5.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "900 Westover Rd, Stamford, CT 06902",
+        "latitude": 41.08232,
+        "longitude": -73.5779
       },
       {
         "id": "scofieldtown",
@@ -39,7 +53,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 6.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "55 Rock Rimmon Rd, Stamford, CT 06903",
+        "latitude": null,
+        "longitude": null
       },
       {
         "id": "springdale",
@@ -47,7 +64,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 6.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "Springdale Train Station, Stamford, CT",
+        "latitude": 41.08901,
+        "longitude": -73.51778
       },
       {
         "id": "glenbrook",
@@ -55,7 +75,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 6.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "Glenbrook Train Station, Stamford, CT",
+        "latitude": 41.07105,
+        "longitude": -73.51989
       },
       {
         "id": "courtland",
@@ -63,7 +86,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 4.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "Courtland Ave & East Main St, Stamford, CT 06902",
+        "latitude": 41.05899,
+        "longitude": -73.51346
       },
       {
         "id": "cove",
@@ -71,7 +97,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 5.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "1125 Cove Rd, Stamford, CT 06902",
+        "latitude": 41.04627,
+        "longitude": -73.50169
       },
       {
         "id": "harry_bennett",
@@ -79,7 +108,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 3.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "115 Vine Rd, Stamford, CT 06905",
+        "latitude": 41.099458,
+        "longitude": -73.543861
       },
       {
         "id": "kosciuszko",
@@ -87,7 +119,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 3.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "200 Elmcroft Rd, Stamford, CT 06902",
+        "latitude": 41.03465,
+        "longitude": -73.53801
       },
       {
         "id": "west_beach",
@@ -95,7 +130,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 3.5,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "Shippan Ave, Stamford, CT 06902",
+        "latitude": 41.03768,
+        "longitude": -73.52262
       },
       {
         "id": "boccuzzi",
@@ -103,7 +141,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 3.0,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "200 Southfield Ave, Stamford, CT 06902",
+        "latitude": 41.03311,
+        "longitude": -73.54584
       },
       {
         "id": "government_center",
@@ -111,7 +152,10 @@
         "capacity_lbs": 180,
         "initial_lbs": 0,
         "demand_lbs_per_day": 2.7,
-        "service_minutes": 5
+        "service_minutes": 5,
+        "address": "888 Washington Blvd, Stamford, CT 06901",
+        "latitude": 41.05147,
+        "longitude": -73.54292
       }
     ],
     "trucks": [
@@ -129,28 +173,40 @@
         "name": "Katrina Mygatt Recycling Center",
         "storage_capacity_lbs": 5000,
         "processing_lbs_per_day": 500,
-        "unload_minutes": 12
+        "unload_minutes": 12,
+        "address": "130 Magee Ave, Stamford, CT 06902",
+        "latitude": 41.04559,
+        "longitude": -73.52637
       },
       {
         "id": "fairgate",
         "name": "Fairgate Farm",
         "storage_capacity_lbs": 3000,
         "processing_lbs_per_day": 300,
-        "unload_minutes": 12
+        "unload_minutes": 12,
+        "address": "129 Stillwater Ave, Stamford, CT 06902",
+        "latitude": 41.05221,
+        "longitude": -73.55158
       },
       {
         "id": "scofieldtown_processing",
         "name": "Scofieldtown Park",
         "storage_capacity_lbs": 3000,
         "processing_lbs_per_day": 300,
-        "unload_minutes": 12
+        "unload_minutes": 12,
+        "address": "55 Rock Rimmon Rd, Stamford, CT 06903",
+        "latitude": null,
+        "longitude": null
       },
       {
         "id": "mill_river_processing",
         "name": "Mill River Park",
         "storage_capacity_lbs": 3000,
         "processing_lbs_per_day": 300,
-        "unload_minutes": 12
+        "unload_minutes": 12,
+        "address": "1055 Washington Blvd, Stamford, CT 06901",
+        "latitude": 41.05387,
+        "longitude": -73.54442
       }
     ],
     "policy": {
