@@ -10,6 +10,9 @@ class CollectionLocation:
     id: str
     name: str
     capacity_lbs: float
+    address: str = ""
+    latitude: float = 0.0
+    longitude: float = 0.0
     initial_lbs: float = 0.0
     demand_lbs_per_day: float = 0.0
     service_minutes: float = 5.0
@@ -31,6 +34,9 @@ class ProcessingSite:
     name: str
     storage_capacity_lbs: float
     processing_lbs_per_day: float
+    address: str = ""
+    latitude: float = 0.0
+    longitude: float = 0.0
     unload_minutes: float = 12.0
 
 @dataclass(frozen=True)
@@ -72,6 +78,9 @@ class Scenario:
         locations = tuple(CollectionLocation(
             id=str(x["id"]), name=str(x.get("name", x["id"])),
             capacity_lbs=float(x.get("capacity_lbs", 180)),
+            address=str(x.get("address", "")),
+            latitude=float(x.get("latitude", 0)),
+            longitude=float(x.get("longitude", 0)),
             initial_lbs=float(x.get("initial_lbs", 0)),
             demand_lbs_per_day=float(x.get("demand_lbs_per_day", 12)),
             service_minutes=float(x.get("service_minutes", 5)),
@@ -89,6 +98,9 @@ class Scenario:
             id=str(x["id"]), name=str(x.get("name", x["id"])),
             storage_capacity_lbs=float(x.get("storage_capacity_lbs", 5000)),
             processing_lbs_per_day=float(x.get("processing_lbs_per_day", 500)),
+            address=str(x.get("address", "")),
+            latitude=float(x.get("latitude", 0)),
+            longitude=float(x.get("longitude", 0)),
             unload_minutes=float(x.get("unload_minutes", 12)),
         ) for x in data.get("processing_sites", []))
         p = data.get("policy", {})
